@@ -1,30 +1,30 @@
 import numpy as np
 
-# Sales data for 4 weeks across 5 categories
+
 sales_data = np.array([[120, 500, 230, 75, 45],
                        [130, 520, 210, 80, 40],
                        [125, 530, 220, 70, 50],
                        [140, 540, 200, 90, 60]])
 
-# Calculate total sales for each product category over 4 weeks
+
 def total_sales_per_category(sales_data):
     return np.sum(sales_data, axis=0)
 
 print("Total sales for each category:", total_sales_per_category(sales_data))
 
 
-# Total sales per week (across all categories)
+
 total_sales_per_week = np.sum(sales_data, axis=1)
 print("Total sales per week:", total_sales_per_week)
 
-# Average sales per product category over the 4 weeks
+
 avg_sales_per_category = np.mean(sales_data, axis=0)
 print("Average sales per category:", avg_sales_per_category)
 
 
 import matplotlib.pyplot as plt
 
-# Line plot for sales trends of each product category over the 4 weeks
+
 weeks = np.array([1, 2, 3, 4])
 categories = ['Electronics', 'Groceries', 'Clothing', 'Furniture', 'Stationery']
 
@@ -38,7 +38,7 @@ plt.legend()
 plt.show()
 
 
-# Identify best and worst selling categories
+
 total_sales = total_sales_per_category(sales_data)
 best_category = categories[np.argmax(total_sales)]
 worst_category = categories[np.argmin(total_sales)]
@@ -46,7 +46,7 @@ worst_category = categories[np.argmin(total_sales)]
 print(f"Best-selling category: {best_category}")
 print(f"Worst-selling category: {worst_category}")
 
-# Bar chart for total sales of each category
+
 plt.bar(categories, total_sales)
 plt.xlabel('Product Categories')
 plt.ylabel('Total Units Sold')
