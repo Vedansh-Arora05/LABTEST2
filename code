@@ -1,0 +1,30 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+weeks=['week1', 'week2', 'week3', 'week4']
+sales_data=np.array([120, 500, 230, 75, 45], [130, 520, 210, 80, 40],[125, 530, 220, 70, 50],[140, 540, 200, 90, 60])
+avg_sales=np.mean(sales_data, axis=1)
+max_sales=np.max(sales_data, axis=1)
+min_sales=np.min(sales_data, axis=1)
+
+for i, week in enumerate(weeks):
+    print(f"(weeks):Avg={avg_sales[i]},Max={max_sales[i]},Min={min_sales[i]}")
+    
+    def avg_sale_per_day(data):
+        return np.mean(data,axis=0)
+        
+daily_avg_sales=avg_sales_per_day(sales_data)
+weeks=['week1', 'week2', 'week3', 'week4']
+for week, avg_sales in zip(weeks,daily_avg_sales):
+    print(f"(week):Avg sales={avg_sales}")
+
+plt.figure(figsize=(10,6))
+for i,week in enumerate(weeks):
+    plt.plot(weeks,sales_data[i],marker='o', label=week)
+    
+plt.title('sales trends over')
+plt.xlabel('weeks')
+plt.ylabel('sales')
+plt.legend()
+plt.grid()
+ply.show()
